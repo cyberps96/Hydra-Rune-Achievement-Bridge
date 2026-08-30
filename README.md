@@ -1,26 +1,31 @@
-# Universal RUNE to Hydra Achievement Bridge
+# Hydra Universal Achievement Manager (v2.0)
 
-A lightweight background utility written in C# that automatically bridges achievement progress from **RUNE emulator** (`achievements.ini`) to **Goldberg format** (`achievements.json`) in real-time for seamless **Hydra Launcher** tracking and popups.
+A lightweight C# CLI utility that enables seamless Steam achievement syncing with **Hydra Launcher** for cracked games using **RUNE** and **Goldberg / GSE** emulators.
 
 ---
 
-## Features
-
-- **Universal AppID Detection:** Automatically discovers and monitors any game folder located under `Steam\RUNE`.
-- **Real-Time Sync:** Utilizes `FileSystemWatcher` with zero CPU overhead to capture achievements the exact moment they are earned.
-- **Startup Sync:** Automatically parses and converts all pre-existing achievements across installed games on launch.
+## What's New in v2.0
+- **Universal RUNE Parser:** Full support for both `.ini` styles (`[Section]` headers with `UnlockTime` and direct `ACH_NAME=1` key-values).
+- **Auto-Schema Generator for Goldberg:** Download full achievement lists directly using Steam's public global API (No Web API key needed).
+- **Auto-Sync on Startup:** Automatically syncs past unlocked achievements upon launching the bridge.
 
 ---
 
 ## How to Use
 
-1. Download the latest release (`HydraRuneBridge.rar`) from the **[Releases](https://github.com/cyberps96/Hydra-Rune-Achievement-Bridge/releases)** section.
-2. Extract and run `HydraRuneBridge.exe` in the background.
-3. Launch and play your game through Hydra Launcher.
-4. Enjoy real-time popups and achievement updates!
+### Option 1: Setup a Game (Goldberg / GSE)
+1. Run the application as **Administrator**.
+2. Select **Option 1**.
+3. Drag & drop the game directory (or enter the path).
+4. The schema (`achievements.json`) will be generated inside `steam_settings` automatically.
+
+### Option 2: Real-time Auto-Bridge (RUNE)
+1. Run the application as **Administrator**.
+2. Select **Option 2** and keep it running in the background.
+3. Play any RUNE game; achievements will mirror to Hydra in real time.
 
 ---
 
-## Supported Emulators
-
-- **RUNE** -> **Goldberg / Hydra Launcher**
+## Requirements
+- Windows 10/11 (x64)
+- Run as Administrator (required for file monitoring permissions)
