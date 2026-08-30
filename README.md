@@ -29,3 +29,11 @@ A lightweight C# CLI utility that enables seamless Steam achievement syncing wit
 ## Requirements
 - Windows 10/11 (x64)
 - Run as Administrator (required for file monitoring permissions)
+---
+
+## Known Limitations & Best Practices
+
+### RUNE Emulator In-Memory Caching
+* **Disk Write Delays:** Some RUNE releases do not flush achievement data to `achievements.ini` in real time while the game is running. Unlocks may only write to disk upon reaching specific in-game checkpoints or quitting to the desktop.
+* **Empty/Missing Writes:** If a game's RUNE DLL fails to write to disk entirely, achievements cannot be detected via file monitoring.
+* **Recommended Workaround:** For 100% real-time tracking, convert the game to the **Goldberg Emulator** using **Option 1** to generate a direct `achievements.json` schema.
